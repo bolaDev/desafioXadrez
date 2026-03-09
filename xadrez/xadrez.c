@@ -1,13 +1,14 @@
 #include <stdio.h>
-
+// prototipo recursividade movimento peça Torre
 void moverTorre(int casas)
-{    // prototipo recursividade movimento peça Torre
+{    
     if(casas > 0){
         printf("Direita\n");
         moverTorre(casas -1);
     }
 }
 
+// prototipo recursividade movimento peça Bispo
 void moverBispo()
 {
     for(int i = 0; i <1; i++)
@@ -19,19 +20,29 @@ void moverBispo()
     }
 }
 
+// prototipo recursividade movimento peça Rainha
+void moverRainha(int casas)
+{
+    if(casas > 0)
+    {
+        printf("Esquerda\n");
+        moverRainha(casas -1);
+    }
+}
+
 
 int main(){
     //variáveis de controle
     int i = 0;
     int j = 0;
     //variável parâmetro função recursiva
-    int casas = 5;
+    int casas;
 
     printf("Desafio Xadrez!\n");
     printf("Movimento da Torre\n");
 
     //Chama recursividade movimento Torre
-    moverTorre(casas);
+    moverTorre(casas = 5);
     printf("--------------------\n");
     printf("Movimento do Bispo\n");
 
@@ -42,11 +53,7 @@ int main(){
     printf("--------------------\n");
     printf("Movimento da Rainha\n");
 
-    do
-    {
-        printf("Esquerda\n");
-        j++;
-    }while (j < 8);
+    moverRainha(casas = 8);
 
     //Movimento do Cavalo
 
