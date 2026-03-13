@@ -37,6 +37,10 @@ int main(){
     int j = 0;
     //variável parâmetro função recursiva
     int casas;
+    //variável para função movimento cavalo
+    int movimento = 1;
+    //variável para switch case
+    int opcao;
 
     printf("Desafio Xadrez!\n");
     printf("Movimento da Torre\n");
@@ -57,34 +61,45 @@ int main(){
 
     //Movimento do Cavalo
 
-    int movimento = 1;
-    int opcao;
     printf("Escolha para onde será o movimento da peça:\n");
-    printf("1. Esquerda\n");
+    printf("1. Cima \n");
     printf("2. Direita\n");
-    printf("3. Cima\n");
+    printf("3. Esquerda\n");
     printf("4. Baixo\n");
     scanf("%d",&opcao);
 
     switch (opcao )
     {
     case 1:
-        while (movimento < 2)
+        for(i = 0, i < 6;i+= (i % 2 == 0)? 1: 2;)
         {
-            for(int i = 0; i < 2; i++)
+            if(i==0)
             {
-                printf("Esquerda\n"); // Imprimirá 'Esquerda' 2 vezes
+                continue;
             }
-
-            printf("Cima\n"); // Imprirá 'Cima' 1 vez
-            movimento++;
+            if(i == 1)
+            {
+                printf("Cima\n");
+            }
+            if(i == 3)
+            {
+                printf("Cima\n");
+            }
+            if(i == 5)
+            {
+                printf("Direita\n");
+            }
+            if(i > 5)
+            {
+                break;
+            }
         }
         break;
 
         case 2:
         while (movimento < 2)
         {
-            for(int i = 0; i < 2; i++)
+            for(int i = 0, j = 3; i <= j; i++,j--)
             {
                 printf("Direita\n"); // Imprimirá 'Direita' 2 vezes
             }
@@ -95,16 +110,15 @@ int main(){
         break;
 
         case 3:
-        while (movimento < 2)
-        {
-            for(int i = 0; i < 2; i++)
+            for(int i = 0, j = 10; i < 3 && j > 7; i++,j--)
             {
-                printf("Cima\n"); // Imprimirá 'Cima' 2 vezes
+                printf("Esquerda \n");
+                if((i!= 0)&&  i % 2 == 0)
+                {
+                    printf("Cima\n");
+                }
             }
 
-            printf("Esquerda\n"); // Imprirá 'Esquerda' 1 vez
-            movimento++;
-        }
         break;
 
         case 4:
